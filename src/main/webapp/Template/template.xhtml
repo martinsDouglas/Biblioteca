@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.prime.com.tr/ui">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+          <p:layout fullPage="true">
+
+                <p:layoutUnit position="north"  header="Moda" collapsible="true">
+                    
+                </p:layoutUnit>
+                <p:layoutUnit position="north"  header="Moda" collapsible="true">
+                    <p:menubar>
+                            <p:menuitem value="Home" url="index.xhtml" />
+                            <p:menuitem value="Cadastro de Usuário" url="cadastrarAluno.xhtml" />
+                            <p:menuitem value="Cadastro de Livro"  url="cadastrarLivro.xhtml" />
+                            <p:menuitem value="Empréstimo" url="emprestimo.xhtml" />
+                            <p:menuitem value="Login" url="login.xhtml"/>
+                            
+                    </p:menubar>
+                </p:layoutUnit>
+         
+                          
+            <p:layoutUnit position="center">
+                   <div id="body">
+        <ui:insert name="body" />
+     </div> 
+                </p:layoutUnit>
+        <hr /></p:layout>
+    </h:body>
+</html>
+

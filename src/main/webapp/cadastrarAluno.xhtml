@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.prime.com.tr/ui">
+    
+    <h:head>
+        <title>Aluno</title>
+    </h:head>
+    <h:body>
+          <h:form>
+            <h:outputLabel value="Digite o nome do Aluno:"/>
+            <h:inputText value="#{alunoMB.aluno.nome}"/>
+            <h:outputLabel value="Digite o numero da matrícula:"/>
+            <h:inputText value="#{alunoMB.aluno.numMatricula}"/>
+            <h:outputLabel value="Digite o curso:"/>
+            <h:inputText value="#{alunoMB.aluno.curso}"/>
+            <h:outputLabel value="Digite o período:"/>
+            <p:inputMask value="#{alunoMB.aluno.periodo}" mask="99/99/9999"/> 
+            <p:commandButton value="Salvar" action="#{alunoMB.salvar()}" ajax="false"/>           
+                                                                  
+            <h:commandLink value="Voltar" action="cadastrarLivros.xhtml"/>
+          </h:form>  
+        <h:form>
+            <h:panelGrid columns="4" cellpadding="5">  
+                <p:dataTable id="tabela" value="#{alunoMB.findAllAlunos()}" var="aluno">
+                    <p:column  headerText="NOME" >  
+                        <h:outputLabel value="#{aluno.nome}"/>
+                    </p:column>
+                    <p:column headerText="CURSO" >
+                        <h:outputLabel value="#{aluno.curso}"/>
+                    </p:column>
+                 </p:dataTable>
+                <h:commandLink value="emprestimo" action="cadastrarLivros"/>
+            </h:panelGrid>
+        </h:form>
+    </h:body>
+</html>
+

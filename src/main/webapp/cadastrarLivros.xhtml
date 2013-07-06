@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.prime.com.tr/ui"
+
+      xmlns:f="http://java.sun.com/jsf/core">      
+    <h:head>
+        <title>Cadastrar Livros</title>
+    </h:head>
+
+    <h:form>
+        <p:panel style="text-align: center" header="Livros">
+            <p:growl />
+            <h:panelGrid columns="2">
+
+                <h:outputLabel value="Digite o titulo do Livro:" for="titulo"/>
+                <h:inputText id="titulo" value="#{livroMB.livro.titulo}" maxlength="10" size="40"/>
+
+                <h:outputLabel value="Digite o genero:" for="genero"/>
+                <h:inputText id="genero" value="#{livroMB.livro.genero}" maxlength="14" size="40"/>
+
+                <h:outputLabel value="Digite o autor:" for="autor"/>
+                <h:inputText id="autor" value="#{livroMB.livro.autor}" required="true" maxlength="14" size="40"/>
+
+                <h:outputLabel value="Digite a data do lançamento:" for="dataLancamento"/>
+                <h:inputText id="dataLancamento" value="#{livroMB.livro.dataDeLancamento}" maxlength="14" size="40"/>
+
+                <p:commandButton value="Salvar" action="#{livroMB.salvarLivro()}" ajax="false" update="form"/>  
+               </h:panelGrid>
+        </p:panel>
+
+
+        <h:panelGrid>  
+            <p:dataTable id="tabela" value="#{livroMB.findAllLivros()}" var="livro" paginator="true" rows="5">
+                 <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="TITULO" />
+                    </f:facet>
+                     <h:outputText value="#{livro.titulo}"/>
+                </p:column>
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="AUTOR" />
+                    </f:facet>
+                    <h:outputText value="#{livro.autor}"/>
+                </p:column>
+                  <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="GENERO" />
+                    </f:facet>
+                    <h:outputText value="#{livro.genero}"/>
+                </p:column>
+             </p:dataTable>
+           
+        </h:panelGrid>
+        <h:commandLink value="Voltar" action="cadastrarAluno.xhtml"/>
+           <f:facet name="header">  
+                <h:outputText value="Edição da viagem" />  
+             <img src="http://javafree.uol.com.br/forum/images/smiles/icon_surprised.gif"/>
+                 </f:facet> 
+    </h:form>   
+</html>
+
